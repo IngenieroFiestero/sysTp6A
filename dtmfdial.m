@@ -21,7 +21,7 @@ function xx = dtmfdial(keyNames,fs,tTono,tSilencio)
 
     dtmf.colTones = ones(4,1)*[1209,1336,1477];
     dtmf.rowTones = [697;770;852;941]*ones(1,3);    
-    ntime = numDigitos*fs*(tSilencio+tTono)
+    ntime = numDigitos*fs*(tSilencio+tTono);
     xx=[];
     for i=1:numDigitos
         [ii,jj]=find(keyNames(i)== dtmf.keys);
