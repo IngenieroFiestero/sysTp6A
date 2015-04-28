@@ -21,15 +21,13 @@ function xx = dtmfdial(keyNames,fs,tTono,tSilencio)
 
     dtmf.colTones = ones(4,1)*[1209,1336,1477];
     dtmf.rowTones = [697;770;852;941]*ones(1,3);    
-    ntime = numDigitos*fs*(tSilencio+tTono);
-    xx=zeros(1,ntime);
+    ntime = numDigitos*fs*(tSilencio+tTono)
+    xx=[];
     for i=1:numDigitos
         [ii,jj]=find(keyNames(i)== dtmf.keys);
         freCol=dtmf.colTones(ii,jj);
         freRow=dtmf.rowTones(ii,jj);
         tTon=(0:tTono*fs-1);
-        tSil=zeros(0,tSilencio*fs-1);
-        xx = [xx, cos(2*pi*freCol*tTon/fs)+cos(2*pi*freRow*tTon/fs) ];
-        xx = [xx,tSil];
+        xx = [xx, cos(2*pi*freCol*tTon/fs)+cos(2*pi*freRow*tTon/fs),zeros(1,tSilencio*fs-1)];
     end
 end
