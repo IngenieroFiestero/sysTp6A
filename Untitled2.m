@@ -25,5 +25,9 @@ plot(conv(hh(:,7),xx),'v')
 
 %%
 fs=16000;
-xx=dtmfdial('5',fs);
-key = dtmfdecodkey(xx,fs)
+num=['9','7','6','5','6','4','3','1','2'];
+xx=dtmfdial(num,fs);
+keyNames = dtmfdecod(xx,fs);
+
+xx=dtmfdial('3',fs);
+keyNames = dtmfdecod(xx,fs);

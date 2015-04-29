@@ -1,0 +1,9 @@
+function key = dtmfdecodkey(x,fs)
+    %calcular la energia
+    N=length(x);
+    hh =dtmfdesign(fb, 80, fs);
+    for i = 1:7
+        convolucion=conv(hh(:,7),x);
+        energia=sum((abs(convolucion)).^2)*fs/N;
+    end   
+end

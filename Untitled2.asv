@@ -5,6 +5,8 @@ xx=dtmfdial(num,fs);
 soundsc(xx,fs)
 xx=dtmfdial('3',fs);
 hh =dtmfdesign(fb, 80, fs);
+plot(conv(hh(:,5),xx),'v')
+
 s=sin(fb(1)*[0:1/fs:0.5]);
 x=zeros(1,7);
 for i=1:7
@@ -20,3 +22,17 @@ plot(conv(hh(:,4),xx),'b')
 plot(conv(hh(:,5),xx),'v')
 plot(conv(hh(:,6),xx),'v')
 plot(conv(hh(:,7),xx),'v')
+
+%%
+fs=16000;
+xx=dtmfdial('7',fs);
+key = dtmfdecodkey(xx,fs)
+%%
+num=['9','7','6','5','6','4','3','1','2'];
+xx=dtmfdial(num,fs);
+key=dtmfdecod(xx,fs)
+
+
+
+
+

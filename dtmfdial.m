@@ -28,6 +28,6 @@ function xx = dtmfdial(keyNames,fs,tTono,tSilencio)
         freCol=dtmf.colTones(ii,jj);
         freRow=dtmf.rowTones(ii,jj);
         tTon=(0:tTono*fs-1);
-        xx = [xx, cos(2*pi*freCol*tTon/fs)+cos(2*pi*freRow*tTon/fs),zeros(1,tSilencio*fs-1)];
+        xx = [xx, cos(2*pi*freCol*tTon/fs)+cos(2*pi*freRow*tTon/fs),zeros(1,tSilencio*fs)];
     end
 end
