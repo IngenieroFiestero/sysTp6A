@@ -12,6 +12,6 @@ function keyNames = dtmfdecod(xx,fs,tTono,tSil)
     keyNames = zeros(1,numKeys);
     timeTone = (tTono+tSil)*fs;
     for i = 1:numKeys
-        keyNames(i)=dtmfdecod(xx(((i-1)*timeTone+1):timeTone),fs);
+        keyNames(i)=dtmfdecodkey(xx(((i-1)*timeTone+1):i*timeTone),fs);
     end
 end
